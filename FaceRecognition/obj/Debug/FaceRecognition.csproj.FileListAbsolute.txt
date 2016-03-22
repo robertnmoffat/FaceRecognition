@@ -1,0 +1,9 @@
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.exe.config
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.exe
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.pdb
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csprojResolveAssemblyReference.cache
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Form1.resources
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Properties.Resources.resources
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csproj.GenerateResource.Cache
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.exe
+D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.pdb
