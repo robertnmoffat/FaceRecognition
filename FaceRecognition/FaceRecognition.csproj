@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="ImageFunctions.cs" />
     <Compile Include="MotionAnalyzer.cs" />
+    <Compile Include="MotionBlob.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VideoCompression.cs" />

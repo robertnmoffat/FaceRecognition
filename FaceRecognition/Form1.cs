@@ -34,7 +34,7 @@ namespace FaceRecognition
             {
                 firstImage = new Bitmap(openFileDialog1.FileName);                
             }
-
+            firstImage.SetResolution(256,256);
             pictureBox1.Image = firstImage;
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 
@@ -49,7 +49,7 @@ namespace FaceRecognition
             {
                 secondImage = new Bitmap(openFileDialog1.FileName);
             }
-
+            secondImage.SetResolution(256,256);
             pictureBox2.Image = secondImage;
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;            
         }
@@ -65,14 +65,86 @@ namespace FaceRecognition
 
             double[,] dImage = ImageFunctions.bitmapToDoubleArray((Bitmap)pictureBox2.Image);
 
+            List<MotionBlob> blobs = new List<MotionBlob>();
+
             for (int y=0; y<firstBlocks.GetLength(1); y++) {
                 for (int x=0; x<firstBlocks.GetLength(0); x++) {
-                    Point point = vidcom.getVector(dImage, firstBlocks[x,y], x*8, y*8, range);
-                    Debug.Write("("+point.X+","+point.Y+"),");
+                    
+
+                    int pixelX = x * 8;
+                    int pixelY = y * 8;
+
+                    Point point = vidcom.getVector(dImage, firstBlocks[x,y], pixelX, pixelY, range);
+
+                    bool blobFound = false;
+                    int distanceThreshold = 10;
+                    foreach (MotionBlob currentBlob in blobs) {
+                        if (currentBlob.vector.Equals(point)) {
+                            //Check if close enough to join this blob
+                            if (!currentBlob.withinThreshold(new Point(pixelX, pixelY))) break;
+
+                            if (pixelX < currentBlob.topLeft.X) currentBlob.topLeft.X = pixelX;
+                            if (pixelY < currentBlob.topLeft.Y) currentBlob.topLeft.Y = pixelY;
+
+                            if (pixelX > currentBlob.topRight.X) currentBlob.topRight.X = pixelX;
+                            if (pixelY < currentBlob.topRight.Y) currentBlob.topRight.Y = pixelY;
+
+                            if (pixelX < currentBlob.bottomLeft.X) currentBlob.bottomLeft.X = pixelX;
+                            if (pixelY > currentBlob.bottomLeft.Y) currentBlob.bottomLeft.Y = pixelY;
+
+                            if (pixelX > currentBlob.bottomRight.X) currentBlob.bottomRight.X = pixelX;
+                            if (pixelY > currentBlob.bottomRight.Y) currentBlob.bottomRight.Y = pixelY;
+
+                            currentBlob.count++;
+
+                            blobFound = true;
+                        }
+                    }
+
+                    if (blobFound == false) {
+                        MotionBlob newBlob = new MotionBlob();
+                        newBlob.vector.X = point.X;
+                        newBlob.vector.Y = point.Y;
+
+                        newBlob.topLeft.X = pixelX;
+                        newBlob.topLeft.Y = pixelY;
+                        newBlob.topRight.X = pixelX+8;
+                        newBlob.topRight.Y = pixelY;
+                        newBlob.bottomLeft.X = pixelX;
+                        newBlob.bottomLeft.Y = pixelY+8;
+                        newBlob.bottomRight.X = pixelX+8;
+                        newBlob.bottomRight.Y = pixelY+8;
+
+                        blobs.Add(newBlob);
+                    }
+
+                    //Debug.Write("("+point.X+","+point.Y+"),");
                 }
-                Debug.WriteLine("");
+                //Debug.WriteLine("");
             }
+
+            Bitmap postImage = (Bitmap)pictureBox1.Image.Clone();
             
+            using (Graphics g = Graphics.FromImage(postImage))
+            {
+                //g.Clear(Color.White);
+                
+                Pen pen = new Pen(Color.Yellow);
+                foreach (MotionBlob currentBlob in blobs)
+                {
+                    if (currentBlob.count > 1)
+                    {
+                        g.DrawLine(pen, currentBlob.topLeft, currentBlob.topRight);
+                        g.DrawLine(pen, currentBlob.topRight, currentBlob.bottomRight);
+                        g.DrawLine(pen, currentBlob.bottomRight, currentBlob.bottomLeft);
+                        g.DrawLine(pen, currentBlob.bottomLeft, currentBlob.topLeft);
+                    }
+
+                }
+            }
+
+            pictureBox3.Image = postImage;
+
         }
         
         
