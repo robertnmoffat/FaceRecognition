@@ -7,3 +7,12 @@ D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Prop
 D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csproj.GenerateResource.Cache
 D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.exe
 D:\school\digipro\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.pdb
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.exe.config
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.exe
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.pdb
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.exe
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\bin\Debug\FaceRecognition.pdb
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csprojResolveAssemblyReference.cache
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Form1.resources
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Properties.Resources.resources
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csproj.GenerateResource.Cache

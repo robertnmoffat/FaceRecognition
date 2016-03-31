@@ -61,7 +61,7 @@ namespace FaceRecognition
             //Block[,] secondBlocks = ImageFunctions.turnImageToBlockArray((Bitmap)pictureBox2.Image);
 
             VideoCompression vidcom = new VideoCompression();
-            int range = 15;
+            int range = 35;
 
             double[,] dImage = ImageFunctions.bitmapToDoubleArray((Bitmap)pictureBox2.Image);
 
