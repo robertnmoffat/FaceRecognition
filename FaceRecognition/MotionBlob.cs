@@ -11,7 +11,7 @@ namespace FaceRecognition
     {
         public Point topLeft,topRight,bottomLeft,bottomRight;
         public Point vector;
-        public int count=0, distanceThreshold=40;
+        public int count=0, distanceThreshold=16;
 
 
         public MotionBlob() {

@@ -61,25 +61,42 @@ namespace FaceRecognition
             //Block[,] secondBlocks = ImageFunctions.turnImageToBlockArray((Bitmap)pictureBox2.Image);
 
             VideoCompression vidcom = new VideoCompression();
-            int range = 35;
+            int range = 15;
 
             double[,] dImage = ImageFunctions.bitmapToDoubleArray((Bitmap)pictureBox2.Image);
 
             List<MotionBlob> blobs = new List<MotionBlob>();
+            //List<Point> points = new List<Point>();
+            Point[,] points = new Point[firstBlocks.GetLength(0),firstBlocks.GetLength(1)];
 
             for (int y=0; y<firstBlocks.GetLength(1); y++) {
-                for (int x=0; x<firstBlocks.GetLength(0); x++) {
-                    
+                for (int x=0; x<firstBlocks.GetLength(0); x++) {                   
 
                     int pixelX = x * 8;
                     int pixelY = y * 8;
+                                        
+                    //points.Add(vidcom.getVector(dImage, firstBlocks[x, y], pixelX, pixelY, range));
+                    points[x, y] = vidcom.getVector(dImage, firstBlocks[x, y], pixelX, pixelY, range);
 
-                    Point point = vidcom.getVector(dImage, firstBlocks[x,y], pixelX, pixelY, range);
+                    //Debug.Write("("+point.X+","+point.Y+"),");
+                }
+                //Debug.WriteLine("");
+            }
+
+
+            for (int y = 0; y < firstBlocks.GetLength(1); y++)
+            {
+                for (int x = 0; x < firstBlocks.GetLength(0); x++)
+                {
+                    int pixelX = x * 8;
+                    int pixelY = y * 8;
 
                     bool blobFound = false;
                     int distanceThreshold = 10;
-                    foreach (MotionBlob currentBlob in blobs) {
-                        if (currentBlob.vector.Equals(point)) {
+                    foreach (MotionBlob currentBlob in blobs)
+                    {
+                        if (currentBlob.vector.Equals(points[x,y]))
+                        {
                             //Check if close enough to join this blob
                             if (!currentBlob.withinThreshold(new Point(pixelX, pixelY))) break;
 
@@ -101,27 +118,26 @@ namespace FaceRecognition
                         }
                     }
 
-                    if (blobFound == false) {
+                    if (blobFound == false)
+                    {
                         MotionBlob newBlob = new MotionBlob();
-                        newBlob.vector.X = point.X;
-                        newBlob.vector.Y = point.Y;
+                        newBlob.vector.X = points[x,y].X;
+                        newBlob.vector.Y = points[x, y].Y;
 
                         newBlob.topLeft.X = pixelX;
                         newBlob.topLeft.Y = pixelY;
-                        newBlob.topRight.X = pixelX+8;
+                        newBlob.topRight.X = pixelX + 8;
                         newBlob.topRight.Y = pixelY;
                         newBlob.bottomLeft.X = pixelX;
-                        newBlob.bottomLeft.Y = pixelY+8;
-                        newBlob.bottomRight.X = pixelX+8;
-                        newBlob.bottomRight.Y = pixelY+8;
+                        newBlob.bottomLeft.Y = pixelY + 8;
+                        newBlob.bottomRight.X = pixelX + 8;
+                        newBlob.bottomRight.Y = pixelY + 8;
 
                         blobs.Add(newBlob);
                     }
-
-                    //Debug.Write("("+point.X+","+point.Y+"),");
                 }
-                //Debug.WriteLine("");
             }
+
 
             Bitmap postImage = (Bitmap)pictureBox1.Image.Clone();
             
