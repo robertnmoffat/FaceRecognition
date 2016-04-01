@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace FaceRecognition
 {
     class VideoCompression
@@ -196,6 +197,29 @@ namespace FaceRecognition
                     }
                 }
             }
+        }
+
+
+        
+
+        public Bitmap movementDifference(Bitmap first, Bitmap second) {
+            Bitmap difference = new Bitmap(first.Width, first.Height);
+
+            Bitmap firstGrey = ImageFunctions.convertToGreyscale(first);
+            Bitmap secondGrey = ImageFunctions.convertToGreyscale(second);
+            int diffAmount;
+            int threshold = 50;
+
+            for (int y=0; y<first.Height; y++) {
+                for (int x=0; x<first.Width; x++) {
+                    diffAmount = Math.Abs(firstGrey.GetPixel(x,y).R-secondGrey.GetPixel(x,y).R);
+
+                    if(diffAmount>threshold)
+                        difference.SetPixel(x,y,Color.FromArgb(255,diffAmount,diffAmount,diffAmount));
+                }
+            }
+
+            return difference;
         }
 
         /*

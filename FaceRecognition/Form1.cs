@@ -57,13 +57,17 @@ namespace FaceRecognition
         /*button to generate motion vectors*/
         private void button1_Click(object sender, EventArgs e)
         {
-            Block[,] firstBlocks = ImageFunctions.turnImageToBlockArray((Bitmap)pictureBox1.Image);
-            //Block[,] secondBlocks = ImageFunctions.turnImageToBlockArray((Bitmap)pictureBox2.Image);
-
             VideoCompression vidcom = new VideoCompression();
+
+            Bitmap firstImage = ImageFunctions.downsizeBitmap((Bitmap)pictureBox1.Image, 1);
+            Bitmap secondImage = ImageFunctions.downsizeBitmap((Bitmap)pictureBox2.Image, 1);
+
+            Block[,] firstBlocks = ImageFunctions.turnImageToBlockArray(firstImage);
+            //Block[,] secondBlocks = ImageFunctions.turnImageToBlockArray((Bitmap)pictureBox2.Image);
+            
             int range = 15;
 
-            double[,] dImage = ImageFunctions.bitmapToDoubleArray((Bitmap)pictureBox2.Image);
+            double[,] dImage = ImageFunctions.bitmapToDoubleArray(secondImage);
 
             List<MotionBlob> blobs = new List<MotionBlob>();
             //List<Point> points = new List<Point>();
@@ -158,6 +162,8 @@ namespace FaceRecognition
 
                 }
             }
+
+            postImage = vidcom.movementDifference(firstImage,secondImage);
 
             pictureBox3.Image = postImage;
 

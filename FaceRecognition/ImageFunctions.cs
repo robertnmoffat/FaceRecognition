@@ -93,5 +93,26 @@ namespace FaceRecognition
             }
             return dImage;
         }
+
+        /// <summary>
+        /// Downscale a bitmap
+        /// </summary>
+        /// <param name="input">bitmap to be downscaled</param>
+        /// <param name="timesSmaller">how many times smaller you want it</param>
+        /// <returns></returns>
+        public static Bitmap downsizeBitmap(Bitmap input, int timesSmaller)
+        {
+            Bitmap output = new Bitmap(input.Width / timesSmaller + 1, input.Height / timesSmaller + 1);
+
+            for (int y = 0; y < input.Height; y += timesSmaller)
+            {
+                for (int x = 0; x < input.Width; x += timesSmaller)
+                {
+                    output.SetPixel(x / timesSmaller, y / timesSmaller, input.GetPixel(x, y));
+                }
+            }
+
+            return output;
+        }
     }
 }
