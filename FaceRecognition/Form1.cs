@@ -158,6 +158,7 @@ namespace FaceRecognition
                         g.DrawLine(pen, currentBlob.topRight, currentBlob.bottomRight);
                         g.DrawLine(pen, currentBlob.bottomRight, currentBlob.bottomLeft);
                         g.DrawLine(pen, currentBlob.bottomLeft, currentBlob.topLeft);
+                        
                     }
 
                 }
