@@ -205,14 +205,31 @@ namespace FaceRecognition
         public Bitmap movementDifference(Bitmap first, Bitmap second) {
             Bitmap difference = new Bitmap(first.Width, first.Height);
 
-            Bitmap firstGrey = ImageFunctions.convertToGreyscale(first);
-            Bitmap secondGrey = ImageFunctions.convertToGreyscale(second);
+            //Bitmap firstGrey = ImageFunctions.convertToGreyscale(first);
+            //Bitmap secondGrey = ImageFunctions.convertToGreyscale(second);
+
+            Color tempColor,tempGrey,firstPixel;
+
             int diffAmount;
             int threshold = 50;
 
             for (int y=0; y<first.Height; y++) {
                 for (int x=0; x<first.Width; x++) {
-                    diffAmount = Math.Abs(firstGrey.GetPixel(x,y).R-secondGrey.GetPixel(x,y).R);
+
+                    tempColor = first.GetPixel(x, y);
+                    tempGrey = Color.FromArgb((tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3);
+                    firstPixel = tempGrey;
+
+                    tempColor = second.GetPixel(x, y);
+                    tempGrey = Color.FromArgb((tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3);
+
+                    //greyscale.SetPixel(x, y, tempGrey);
+
+                    diffAmount = Math.Abs(firstPixel.R-tempGrey.R);
 
                     if(diffAmount>threshold)
                         difference.SetPixel(x,y,Color.FromArgb(255,diffAmount,diffAmount,diffAmount));

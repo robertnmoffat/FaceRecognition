@@ -30,10 +30,10 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.loadImagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,6 +58,13 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
+            // 
+            // loadImagesToolStripMenuItem
+            // 
+            this.loadImagesToolStripMenuItem.Name = "loadImagesToolStripMenuItem";
+            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.loadImagesToolStripMenuItem.Text = "&Load Images";
+            this.loadImagesToolStripMenuItem.Click += new System.EventHandler(this.loadImagesToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -85,13 +92,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // loadImagesToolStripMenuItem
-            // 
-            this.loadImagesToolStripMenuItem.Name = "loadImagesToolStripMenuItem";
-            this.loadImagesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.loadImagesToolStripMenuItem.Text = "&Load Images";
-            this.loadImagesToolStripMenuItem.Click += new System.EventHandler(this.loadImagesToolStripMenuItem_Click);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Location = new System.Drawing.Point(233, 39);
@@ -113,6 +113,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

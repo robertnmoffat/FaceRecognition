@@ -16,3 +16,9 @@ F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecog
 F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Form1.resources
 F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.Properties.Resources.resources
 F:\school\Digital Multimedia\FaceRecognition\FaceRecognition\obj\Debug\FaceRecognition.csproj.GenerateResource.Cache
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.Video.DirectShow.dll
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.Video.dll
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.dll
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.Video.xml
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.Video.DirectShow.xml
+D:\school\digipro\FaceRecognition\FaceRecognition\bin\Debug\AForge.xml
