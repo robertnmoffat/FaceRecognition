@@ -22,6 +22,8 @@ namespace FaceRecognition
         Bitmap currentFrame;
         int frameOffset = 0;
 
+        VideoCompression vidcom = new VideoCompression();
+
         public Form1()
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace FaceRecognition
 
         private void video_newFrame(object sender, NewFrameEventArgs eventArgs) {
             frameOffset++;
-            if (frameOffset > 6)
+            if (frameOffset > 2)
             {
                 previousFrame = currentFrame;
                 currentFrame = (Bitmap)eventArgs.Frame.Clone();
@@ -52,9 +54,17 @@ namespace FaceRecognition
                 //pictureBox3.Image = currentFrame;
                 //pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
                 Debug.WriteLine(currentFrame.Width + "," + currentFrame.Height);
-
-                VideoCompression vidcom = new VideoCompression();
-                pictureBox3.Image = vidcom.movementDifference(currentFrame, previousFrame);
+                
+                
+                
+                Bitmap differenceImage = vidcom.movementDifference(currentFrame, previousFrame);
+                Rectangle rect = ImageFunctions.findBlobs(differenceImage);
+                
+                Graphics g = Graphics.FromImage(differenceImage);
+                Pen p = new Pen(Color.Red);
+                g.DrawRectangle(p, rect);
+                pictureBox3.Image = differenceImage;
+                
                 pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
                 frameOffset = 0;
             }
@@ -215,5 +225,7 @@ namespace FaceRecognition
         {
 
         }
+
+        
     }
 }

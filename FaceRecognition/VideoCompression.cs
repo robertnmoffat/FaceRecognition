@@ -32,12 +32,12 @@ namespace FaceRecognition
             xPos = xPos + 4;
             yPos = yPos + 4;
             double minError = 99999;
-            int minXPos=0;
-            int minYPos=0;
+            int minXPos = 0;
+            int minYPos = 0;
             double currentError;
 
-            for (int y= yPos - range; y<yPos+ range; y++) {
-                for (int x = xPos - range; x < xPos + range; x++) {  
+            for (int y = yPos - range; y < yPos + range; y++) {
+                for (int x = xPos - range; x < xPos + range; x++) {
                     currentError = getErrorForPosition(image, comparison, x, y, 1);
                     if (currentError < minError) {
                         minError = currentError;
@@ -48,7 +48,7 @@ namespace FaceRecognition
             }
             //Debug.WriteLine(minError);
 
-            Point vector = new Point(minXPos-xPos, minYPos-yPos);            
+            Point vector = new Point(minXPos - xPos, minYPos - yPos);
 
             return vector;
         }
@@ -76,11 +76,11 @@ namespace FaceRecognition
                     CrerrorBlock = new Block();
                     break;
             }
-            
-            for (int y=yPos; y<yPos+8; y++) {
-                for (int x=xPos; x<xPos+8; x++) {
+
+            for (int y = yPos; y < yPos + 8; y++) {
+                for (int x = xPos; x < xPos + 8; x++) {
                     //if out of bounds, treat as a value of zero
-                    if (y >= image.GetLength(1) || x >= image.GetLength(0)||x<0||y<0) {
+                    if (y >= image.GetLength(1) || x >= image.GetLength(0) || x < 0 || y < 0) {
                         switch (channel)
                         {
                             case 1:
@@ -93,11 +93,11 @@ namespace FaceRecognition
                                 CrerrorBlock.set(x - xPos, y - yPos, Math.Round((0 - comparison.get(x - xPos, y - yPos))));
                                 break;
                         }
-                        
+
                         error += Math.Abs(0 - comparison.get(x - xPos, y - yPos));
                         continue;
                     }
-                    currentError = image[x,y]-comparison.get(x-xPos, y-yPos);
+                    currentError = image[x, y] - comparison.get(x - xPos, y - yPos);
                     error += Math.Abs(currentError);
                     switch (channel)
                     {
@@ -110,10 +110,10 @@ namespace FaceRecognition
                         case 3:
                             CrerrorBlock.set(x - xPos, y - yPos, Math.Round(currentError));
                             break;
-                    }                    
+                    }
                 }
             }
-                       
+
             if (xPos == 3 && yPos == 0)
             {
                 //Debug.WriteLine("----------------------------ErrorBlock-----------------------------------");
@@ -124,14 +124,14 @@ namespace FaceRecognition
                         //Debug.Write(errorBlock.get(q, w) + ",");
                         //Debug.Write(comparison.get(q, w) + ",");
                     }
-                   // Debug.WriteLine("");
+                    // Debug.WriteLine("");
                 }
-               // Debug.WriteLine("----------------------------------------------------------------------------------------------");
+                // Debug.WriteLine("----------------------------------------------------------------------------------------------");
             }
 
             error /= 64;
 
-           // Debug.WriteLine("Total error = "+error);
+            // Debug.WriteLine("Total error = "+error);
 
             return error;
         }
@@ -179,7 +179,7 @@ namespace FaceRecognition
                             case 3:
                                 CrpostBlock.set(x - xPos, y - yPos, Math.Round(Math.Abs(0 + errorBlock.get(x - xPos, y - yPos))));
                                 break;
-                        }                        
+                        }
                         continue;
                     }
                     currentError = Math.Abs(image[x, y] + errorBlock.get(x - xPos, y - yPos));
@@ -200,7 +200,7 @@ namespace FaceRecognition
         }
 
 
-        
+
 
         public Bitmap movementDifference(Bitmap first, Bitmap second) {
             Bitmap difference = new Bitmap(first.Width, first.Height);
@@ -208,13 +208,13 @@ namespace FaceRecognition
             //Bitmap firstGrey = ImageFunctions.convertToGreyscale(first);
             //Bitmap secondGrey = ImageFunctions.convertToGreyscale(second);
 
-            Color tempColor,tempGrey,firstPixel;
+            Color tempColor, tempGrey, firstPixel;
 
             int diffAmount;
             int threshold = 50;
 
-            for (int y=0; y<first.Height; y++) {
-                for (int x=0; x<first.Width; x++) {
+            for (int y = 0; y < first.Height; y++) {
+                for (int x = 0; x < first.Width; x++) {
 
                     tempColor = first.GetPixel(x, y);
                     tempGrey = Color.FromArgb((tempColor.R + tempColor.B + tempColor.G) / 3,
@@ -229,14 +229,25 @@ namespace FaceRecognition
 
                     //greyscale.SetPixel(x, y, tempGrey);
 
-                    diffAmount = Math.Abs(firstPixel.R-tempGrey.R);
+                    //diffAmount = Math.Abs(firstPixel.R-tempGrey.R);
+                    diffAmount = tempGrey.R - firstPixel.R;
 
-                    if(diffAmount>threshold)
-                        difference.SetPixel(x,y,Color.FromArgb(255,diffAmount,diffAmount,diffAmount));
+                    if (diffAmount > threshold)
+                        difference.SetPixel(x, y, Color.FromArgb(255, 0, 0, 0));
+                    //difference.SetPixel(x,y,Color.FromArgb(255,diffAmount,diffAmount,diffAmount));
                 }
             }
 
             return difference;
+        }
+
+        public bool movementDifference(Color first, Color second, int threshold) {
+            int diffAmount = first.R - second.R;
+
+            if (diffAmount > threshold)
+                return true;
+
+            return false;
         }
 
         /*
