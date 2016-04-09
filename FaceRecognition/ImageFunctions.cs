@@ -52,6 +52,12 @@ namespace FaceRecognition
             return block;
         }
 
+        public static Color convertPixelToGreyscale(Color tempColor) {
+            return Color.FromArgb((tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3,
+                        (tempColor.R + tempColor.B + tempColor.G) / 3);
+        }
+
         /// <summary>
         /// Turns a bitmap image into a 2d Block array
         /// </summary>
@@ -114,5 +120,35 @@ namespace FaceRecognition
 
             return output;
         }
+
+        public static Rectangle findBlobs(Bitmap image) {
+            int lowestX = 99999;
+            int highestX = -1;
+            int lowestY = 99999;
+            int highestY = -1;
+            Color pixel;
+
+            for (int y=0; y<image.Height; y++) {
+                for (int x=0; x<image.Width; x++) {
+                    pixel = image.GetPixel(x,y);
+                    if (pixel.R == 0) {
+                        if (x < lowestX)
+                            lowestX = x;
+                        if (x > highestX)
+                            highestX = x;
+                        if (y < lowestY)
+                            lowestY = y;
+                        if (y > highestY)
+                            highestY = y;
+                    }
+                }
+            }
+
+            Rectangle rect = new Rectangle(lowestX,lowestY,highestX-lowestX, highestY-lowestY);
+
+            return rect;
+        }
+
+
     }
 }

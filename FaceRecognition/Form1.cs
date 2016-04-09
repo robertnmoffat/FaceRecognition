@@ -1,9 +1,12 @@
-﻿using System;
+﻿using AForge.Video;
+using AForge.Video.DirectShow;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,9 +16,58 @@ namespace FaceRecognition
 {
     public partial class Form1 : Form
     {
+        VideoCaptureDevice vidCap;
+        FilterInfoCollection videoDevices;
+        Bitmap previousFrame;
+        Bitmap currentFrame;
+        int frameOffset = 0;
+
+        VideoCompression vidcom = new VideoCompression();
+
         public Form1()
         {
             InitializeComponent();
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            Debug.WriteLine(videoDevices.Count);
+            foreach (FilterInfo device in videoDevices) {
+                Debug.WriteLine(device.Name);
+            }
+            vidCap = new VideoCaptureDevice(videoDevices[0].MonikerString);
+            vidCap.NewFrame += new NewFrameEventHandler(video_newFrame);
+            
+            string highestSolution = "0;0" ;
+            for (int i = 0; i < vidCap.VideoCapabilities.Length; i++) {
+                highestSolution = vidCap.VideoCapabilities[i].FrameSize.Width.ToString() + ";" + i.ToString();
+            }
+            
+            vidCap.SnapshotResolution = vidCap.VideoCapabilities[Convert.ToInt32(highestSolution.Split(';')[1])];
+            vidCap.Start();
+        }
+
+        private void video_newFrame(object sender, NewFrameEventArgs eventArgs) {
+            frameOffset++;
+            if (frameOffset > 2)
+            {
+                previousFrame = currentFrame;
+                currentFrame = (Bitmap)eventArgs.Frame.Clone();
+                if (previousFrame == null) previousFrame = currentFrame;
+                //pictureBox3.Image = currentFrame;
+                //pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+                Debug.WriteLine(currentFrame.Width + "," + currentFrame.Height);
+                
+                
+                
+                Bitmap differenceImage = vidcom.movementDifference(currentFrame, previousFrame);
+                Rectangle rect = ImageFunctions.findBlobs(differenceImage);
+                
+                Graphics g = Graphics.FromImage(differenceImage);
+                Pen p = new Pen(Color.Red);
+                g.DrawRectangle(p, rect);
+                pictureBox3.Image = differenceImage;
+                
+                pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+                frameOffset = 0;
+            }
         }
 
         private void loadImagesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -51,7 +103,7 @@ namespace FaceRecognition
             }
             secondImage.SetResolution(256,256);
             pictureBox2.Image = secondImage;
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;            
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;                        
         }
 
         /*button to generate motion vectors*/
@@ -169,7 +221,12 @@ namespace FaceRecognition
             pictureBox3.Image = postImage;
 
         }
-        
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }
