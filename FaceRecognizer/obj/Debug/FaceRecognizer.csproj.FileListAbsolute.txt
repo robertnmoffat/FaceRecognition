@@ -1,0 +1,67 @@
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\FaceRecognizer.exe.config
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.csprojResolveAssemblyReference.cache
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.MainForm.resources
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.Properties.Resources.resources
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.csproj.GenerateResource.Cache
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\bin32\libiomp5md.dll
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\bin32\mkl_custom.dll
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\bin64\libiomp5md.dll
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\bin64\mkl_custom.dll
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\FaceRecognizer.exe
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\FaceRecognizer.pdb
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\ILNumerics.dll
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\ILNumerics.xml
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.exe
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.pdb
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\FaceRecognizer.exe.manifest
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\bin\Debug\FaceRecognizer.application
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.exe.manifest
+C:\Users\Drew\Documents\BCIT\comp 4932\FaceRecognizer\FaceRecognizer\obj\Debug\FaceRecognizer.application
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\FaceRecognizer.exe.config
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.exe
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.pdb
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.csprojResolveAssemblyReference.cache
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.MainForm.resources
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.Properties.Resources.resources
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.csproj.GenerateResource.Cache
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\bin32\libiomp5md.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\bin32\mkl_custom.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\bin64\libiomp5md.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\bin64\mkl_custom.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\FaceRecognizer.exe.manifest
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\FaceRecognizer.application
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\FaceRecognizer.exe
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\FaceRecognizer.pdb
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\ILNumerics.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\bin\Debug\ILNumerics.xml
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.exe.manifest
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project\FaceRecognizer\obj\Debug\FaceRecognizer.application
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\FaceRecognizer.exe.config
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.exe
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.pdb
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\bin32\libiomp5md.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\bin32\mkl_custom.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\bin64\libiomp5md.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\bin64\mkl_custom.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\FaceRecognizer.exe.manifest
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\FaceRecognizer.application
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\FaceRecognizer.exe
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\FaceRecognizer.pdb
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.Video.DirectShow.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.Video.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\ILNumerics.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.dll
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.Video.xml
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.Video.DirectShow.xml
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\ILNumerics.xml
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\bin\Debug\AForge.xml
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.csprojResolveAssemblyReference.cache
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.Form1.resources
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.MainForm.resources
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.Properties.Resources.resources
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.csproj.GenerateResource.Cache
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.exe.manifest
+C:\Users\dingus\Desktop\FaceRec version CSHARP\FaceRecognizer - project - Copy\FaceRecognizer\obj\Debug\FaceRecognizer.application
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognizer\bin\Debug\FaceRecognizer.exe.config
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognizer\obj\Debug\FaceRecognizer.exe
+F:\school\Digital Multimedia\FaceRecognition\FaceRecognizer\obj\Debug\FaceRecognizer.pdb
