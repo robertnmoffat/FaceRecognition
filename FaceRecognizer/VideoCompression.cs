@@ -211,7 +211,7 @@ namespace FaceRecognition
             Color tempColor, tempGrey, firstPixel;
 
             int diffAmount;
-            int threshold = 40;
+            int threshold = 30;
 
             for (int y = 0; y < first.Height; y++) {
                 for (int x = 0; x < first.Width; x++) {

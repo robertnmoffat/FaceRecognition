@@ -269,8 +269,16 @@ namespace FaceRecognition
                         Debug.WriteLine(face);
                     }
 
-                    if (faceMissed >= 10)
-                        p.Color = Color.Transparent;
+                    if (faceRecog.currentFace != null)
+                    {
+                        pictureBox1.Image = faceRecog.currentFace;
+                        pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                        pictureBox2.Image = faceRecog.candidateFace;
+                        pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+                    }
+
+                    if (faceMissed >= 15)
+                        p.Color = Color.Red;
                     else
                         p.Color = Color.Green;
 

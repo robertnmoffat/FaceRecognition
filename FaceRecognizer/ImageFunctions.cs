@@ -28,6 +28,23 @@ namespace FaceRecognition
             return greyscale;
         }
 
+        public static Bitmap combineImages(Bitmap main, Bitmap addition, int amount) {
+            if (amount == 0||amount==1) return addition;
+
+            Bitmap output = new Bitmap(main.Width, main.Height);
+
+            for (int y=0; y<main.Height; y++) {
+                for (int x=0; x<main.Width; x++) {
+                    int mainC = main.GetPixel(x, y).R;
+                    int additionC = addition.GetPixel(x, y).R;
+                    double weight = 1 / (double)amount;
+                    int rgb = (int)(additionC * weight + mainC * (1 - weight));
+                    output.SetPixel(x,y,Color.FromArgb(rgb,rgb,rgb));
+                }
+            }
+            return output;
+        }
+
         /// <summary>
         /// Generate an 8x8 block starting at the position passed in the image passed
         /// </summary>

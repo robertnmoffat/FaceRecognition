@@ -1,6 +1,9 @@
-﻿using System;
+﻿using FaceRecognition;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +29,13 @@ namespace FaceRecognizer
         Bitmap libBmp;
         double faceSpace;
 
+        public Bitmap currentFace = new Bitmap(256,256);
+        public Bitmap candidateFace = new Bitmap(256,256);
+        Bitmap[] candidates = new Bitmap[4];
+        int candidateAmount = 1;
+        double candidateCloseness = 9999999999999999;
+
+        int imageCount;
 
         public FaceRecog() {
             mainBmp = new Bitmap(Image.FromFile("./plane.bmp"));
@@ -76,6 +86,7 @@ namespace FaceRecognizer
         private int LoadLibrary(string directory, int width, int height, int subSet)
         {
             string[] images = Directory.GetFiles(@directory, "*.jpg");
+            imageCount = images.Length+1;
             if (subSet < 1)
                 subSet = 1;
             lib = new double[images.Length][,];
@@ -101,6 +112,7 @@ namespace FaceRecognizer
             comp = ImageTool.compareWeigths(libWeights, weights);
             int p = ImageTool.smallestVal(comp);
 
+            Debug.WriteLine(comp[p]+"-----------");
             if (comp[p] > SAME_FACE_THRESH)
             {
                 //lb_person.Text = "Person: Unknown";
@@ -115,6 +127,7 @@ namespace FaceRecognizer
 
             //pb_lib.Image = libBmp;
             ImageTool.SetImage(libBmp, lib[p]);
+            ImageTool.SetImage(currentFace, lib[p]);
             //sb_lib.Value = p;
             //lb_distance.Text = "Distance : " + comp[p];
             faceSpace = ImageTool.difference(img, recon);
@@ -123,6 +136,23 @@ namespace FaceRecognizer
             {
                 //lb_faceSpace.Text += "\nNot a face";
                 output = "Not a face";
+            }
+
+            if (faceSpace < 11500)
+            {
+                Debug.WriteLine("--------------------"+candidateAmount);
+                // candidateFace = ImageFunctions.combineImages((Bitmap)candidateFace.Clone(), mainBmp, candidateAmount);
+
+                if (faceSpace<candidateCloseness) {
+                    candidateFace = mainBmp;
+                    candidateCloseness = faceSpace;
+                }
+
+                //if (candidateAmount < 10)
+                    candidateAmount++;
+
+                candidateFace.Save("./imgLib/face"+imageCount+".jpg", ImageFormat.Jpeg);
+                //imageCount++;
             }
 
             return output;
