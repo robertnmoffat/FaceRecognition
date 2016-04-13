@@ -13,7 +13,7 @@ namespace FaceRecognizer
 {
     class FaceRecog
     {
-        public const double SAME_FACE_THRESH = 7.0;
+        public const double SAME_FACE_THRESH = 7.5;
         public const double FACE_THRESH = 16000;
         private const int REGULAR = 0, DIFFERENCE = 1, EIGEN = 2;
         private const int FACES_PER_PERSON = 3;
@@ -66,7 +66,6 @@ namespace FaceRecognizer
             double[] weights = ImageTool.getWeights(eigFaces, img, avg);
             comp = ImageTool.compareWeigths(libWeights, weights);
             int p = ImageTool.smallestVal(comp);
-
             //Would be guess of face
             //lb_person.Text = "Person: " + p;
 
@@ -122,12 +121,15 @@ namespace FaceRecognizer
             {
                 //lb_person.Text = "Person: " + p;
                 output = "Person: " + p;
+                ImageTool.SetImage(currentFace, lib[p]);
             }
             recon = ImageTool.reconstruct(weights, eigFaces, avg);
 
             //pb_lib.Image = libBmp;
             ImageTool.SetImage(libBmp, lib[p]);
-            ImageTool.SetImage(currentFace, lib[p]);
+
+            //ImageTool.SetImage(currentFace, lib[p]);
+
             //sb_lib.Value = p;
             //lb_distance.Text = "Distance : " + comp[p];
             faceSpace = ImageTool.difference(img, recon);

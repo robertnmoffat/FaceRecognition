@@ -160,6 +160,7 @@ namespace FaceRecognition
             int highestY = -1;          
 
             Color pixel;
+            int distanceChangeThreshold = 20;
 
             for (int y=0; y<image.Height; y++) {
                 for (int x=0; x<image.Width; x++) {
@@ -189,9 +190,14 @@ namespace FaceRecognition
             Rectangle rect;
 
             if (lowestX != 99999 && lowestY != 99999 && highestX != -1 && highestY != -1)
-                rect = new Rectangle(lowestX, lowestY, highestX - lowestX, highestY - lowestY);
+            {
+
+                rect = new Rectangle(lowestX, lowestY, highestX - lowestX, highestY - lowestY);                
+            }
             else
                 rect = r;
+
+            
 
             return rect;
         }
