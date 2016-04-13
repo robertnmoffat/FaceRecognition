@@ -153,6 +153,20 @@ namespace FaceRecognition
             return output;
         }
 
+        public Bitmap applyBlur(Bitmap image, double deviation) {
+            Bitmap output = new Bitmap(image.Width, image.Height);
+            
+            double first = 1 / (2 * Math.PI * deviation * deviation);
+
+            for (int y=0; y<image.Height; y++) {
+                for (int x=0; x<image.Width; x++) {
+                    //output.SetPixel();
+                }
+            }
+
+            return output;
+        }
+
         public static Rectangle findBlobs(Bitmap image, Rectangle r) {
             int lowestX = 99999;
             int highestX = -1;

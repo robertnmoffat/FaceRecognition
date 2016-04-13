@@ -13,7 +13,7 @@ namespace FaceRecognizer
 {
     class FaceRecog
     {
-        public const double SAME_FACE_THRESH = 7.5;
+        public const double SAME_FACE_THRESH = 7.75;
         public const double FACE_THRESH = 16000;
         private const int REGULAR = 0, DIFFERENCE = 1, EIGEN = 2;
         private const int FACES_PER_PERSON = 3;
@@ -31,11 +31,12 @@ namespace FaceRecognizer
 
         public Bitmap currentFace = new Bitmap(256,256);
         public Bitmap candidateFace = new Bitmap(256,256);
-        Bitmap[] candidates = new Bitmap[4];
+        public Bitmap[] candidates = new Bitmap[3];
+        double[] candidateScores = new double[3];
         int candidateAmount = 1;
         double candidateCloseness = 9999999999999999;
 
-        int imageCount;
+        public int imageCount;
 
         public FaceRecog() {
             mainBmp = new Bitmap(Image.FromFile("./plane.bmp"));
@@ -145,15 +146,31 @@ namespace FaceRecognizer
                 Debug.WriteLine("--------------------"+candidateAmount);
                 // candidateFace = ImageFunctions.combineImages((Bitmap)candidateFace.Clone(), mainBmp, candidateAmount);
 
-                if (faceSpace<candidateCloseness) {
-                    candidateFace = mainBmp;
-                    candidateCloseness = faceSpace;
-                }
+              
+                    for (int i=0; i<candidates.Length; i++) {
+                        if (candidates[i] == null)
+                        {
+                            candidates[i] = mainBmp;
+                            candidateScores[i] = faceSpace;
+                            candidateFace = mainBmp;
+                        }
+                        else {
+                            if (faceSpace<candidateScores[i]) {
+                                candidates[i] = mainBmp;
+                                candidateScores[i] = faceSpace;
+                                candidateFace = mainBmp;
+                                break;
+                            }
+                        }
+
+                    }
+                    
+                
 
                 //if (candidateAmount < 10)
                     candidateAmount++;
 
-                candidateFace.Save("./imgLib/face"+imageCount+".jpg", ImageFormat.Jpeg);
+                //candidateFace.Save("./imgLib/face"+imageCount+".jpg", ImageFormat.Jpeg);
                 //imageCount++;
             }
 
